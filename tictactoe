@@ -1,0 +1,36 @@
+# Andy Zhang
+# started May 4th, 2020
+# AP Create Task
+
+'''
+A text-based tic-tac-toe game against the computer opponent. 
+The opponent can choose moves randomly, to choose semi-randomly, or to win or tie every game.
+'''
+
+currentGrid = [ #Shows the current grid
+    'X','O','X',
+    '','','X',
+    '','O','']
+
+def printableGrid(grid): #Adds whitespaces to all empty spots in the grid, for readibility
+    for x in range(0, len(grid)):
+        if grid[x] == '':
+            grid.pop(x)
+            grid.insert(x,' ')
+    return grid
+
+
+def printGrid(): #prints the current grid in a nice, readable fashion. Only works for monospace fonts.
+    for x in range(0, len(currentGrid),3):
+        print(printableGrid(currentGrid)[x]+' | '+printableGrid(currentGrid)[x+1]+' | '+printableGrid(currentGrid)[x+2])
+        if x != 6:
+            print('---------')
+
+printGrid()
+# Game startup
+try:
+    print('Hello, welcome to Tic-Tac-Toe! Select your difficulty.')
+    difficulty = input("Valid inputs: EASY, MEDIUM, or HARD ")
+except:
+    print("Something went wrong, maybe you typed in an invalid input?")
+
